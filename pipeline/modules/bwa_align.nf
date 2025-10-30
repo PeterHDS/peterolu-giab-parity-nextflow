@@ -16,4 +16,11 @@ process BWA_ALIGN {
   bwa index ref.fa
   bwa mem -t 2 -R "@RG\\tID:${sample_id}\\tSM:${sample_id}\\tPL:ILLUMINA" ref.fa $reads > ${sample_id}.sam
   """
+
+  stub:
+  """
+  echo "@SQ\\tSN:stub\\tLN:100" > ${sample_id}.sam
+  echo "@RG\\tID:${sample_id}\\tSM:${sample_id}" >> ${sample_id}.sam
+  echo "@PG\\tID:stub" >> ${sample_id}.sam
+  """
 }

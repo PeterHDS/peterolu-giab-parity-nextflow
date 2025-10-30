@@ -14,4 +14,10 @@ process SAMTOOLS_SORT {
   samtools view -bS ${sam} | samtools sort -o ${sample_id}.sorted.bam
   samtools index ${sample_id}.sorted.bam
   """
+
+  stub:
+  """
+  # minimal BAM placeholder
+  : > ${sample_id}.sorted.bam
+  """
 }

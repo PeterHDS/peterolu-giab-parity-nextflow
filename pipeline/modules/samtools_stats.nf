@@ -15,4 +15,10 @@ process SAMTOOLS_STATS {
   samtools flagstat ${bam} > ${sample_id}.samtools_flagstat.txt
   samtools stats ${bam} > ${sample_id}.samtools_stats.txt
   """
+
+  stub:
+  """
+  echo "This file was produced by samtools flagstat (stub)" > ${sample_id}.samtools_flagstat.txt
+  echo "This file was produced by samtools stats (stub)"   > ${sample_id}.samtools_stats.txt
+  """
 }

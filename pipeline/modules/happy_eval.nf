@@ -1,6 +1,6 @@
 process HAPPY_EVAL {
   publishDir("${params.outdir}/happy", mode: 'copy')
-  container "mambaorg/micromamba:1.5.8"
+  container "pkrusche/hap.py:latest"
 
   input:
     path refdir
@@ -10,17 +10,19 @@ process HAPPY_EVAL {
   output:
     path "happy/*"
 
-  shell:
-  '''
-  set -euo pipefail
+  script:
+  """
+  cp -r $refdir ./ref
   mkdir -p happy
+  hap.py -r ref/ref.fa -f ${regions_bed} -o happy/${sample_id} ${truth_vcf_gz} ${call_vcf_gz}
+  """
 
-  micromamba create -y -n happy -c conda-forge -c bioconda hap.py=0.3.15 >&2
-  micromamba run -n happy hap.py \
-    -r "!{refdir}/ref.fa" \
-    -f "!{regions_bed}" \
-    -o "happy/!{sample_id}" \
-    "!{truth_vcf_gz}" \
-    "!{call_vcf_gz}"
-  '''
+  stub:
+  """
+  mkdir -p happy
+  echo "metric,value" > happy/${sample_id}.summary.csv
+  echo "TP,0"        >> happy/${sample_id}.summary.csv
+  echo "FP,0"        >> happy/${sample_id}.summary.csv
+  echo "FN,0"        >> happy/${sample_id}.summary.csv
+  """
 }
