@@ -1,0 +1,21 @@
+# Nextflow runtime
+pipeline/work/
+pipeline/.nextflow*
+pipeline/.nxf*
+pipeline/.cache/
+pipeline/.nf-test/
+pipeline/.last*
+pipeline/history
+
+# Results / reports generated locally
+results*/
+results_*/
+
+# OS/editor junk
+.DS_Store
+*.swp
+*.tmp
+
+# MkDocs build
+site/
+docs/site/
