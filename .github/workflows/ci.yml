@@ -1,10 +1,17 @@
 name: CI
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up Java 17 (Nextflow requirement)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
 
       - name: Install Nextflow
         run: |
@@ -12,9 +19,26 @@ jobs:
           sudo mv nextflow /usr/local/bin/
           nextflow -version
 
-      # IMPORTANT: we run from the pipeline/ folder,
-      # so param paths must be relative to pipeline/
-      - name: Stub run (no real data)
+      - name: Prepare stub assets (tiny files for -stub-run)
+        run: |
+          mkdir -p assets/reads assets/ref assets/giab
+          printf '@READ1/1\nACGTACGT\n+\nFFFFFFFF\n' > assets/reads/demo_R1.fastq
+          printf '@READ1/2\nTCGATCGA\n+\nFFFFFFFF\n' > assets/reads/demo_R2.fastq
+          gzip -f assets/reads/demo_R1.fastq assets/reads/demo_R2.fastq
+          cat > assets/ref/miniref.fa << 'EOF'
+>chrMock
+ACGTACGTACGTACGATCGATCGATCGATCGAT
+EOF
+          printf 'chrMock\t1\t36\n' > assets/giab/chrMock_confident.bed
+          {
+            echo '##fileformat=VCFv4.2'
+            echo '##contig=<ID=chrMock>'
+            echo -e '#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tTRUTH'
+            echo -e 'chrMock\t20\t.\tA\tT\t60\tPASS\t.\tGT\t1/1'
+          } > assets/giab/chrMock_truth.vcf
+          gzip -f assets/giab/chrMock_truth.vcf  # gzip is fine for stub-run
+
+      - name: Stub run (no real compute / no containers)
         run: |
           cd pipeline
           echo '{ "reads": "../assets/reads/demo_{R1,R2}.fastq.gz",
