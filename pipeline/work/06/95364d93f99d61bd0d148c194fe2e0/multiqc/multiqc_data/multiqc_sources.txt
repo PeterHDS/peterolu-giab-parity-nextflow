@@ -1,0 +1,3 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	demo_R2	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/06/95364d93f99d61bd0d148c194fe2e0/fastqc/demo_R2_fastqc.zip
+FastQC	all_sections	demo_R1	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/06/95364d93f99d61bd0d148c194fe2e0/fastqc/demo_R1_fastqc.zip

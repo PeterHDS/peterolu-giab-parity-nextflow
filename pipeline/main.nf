@@ -1,13 +1,21 @@
 nextflow.enable.dsl=2
 
-include { FASTQC } from './modules/fastqc.nf'
+include { FASTQC }  from './modules/fastqc.nf'
+include { MULTIQC } from './modules/multiqc.nf'
 
-// Build tuples: [ sample_id, R1.fastq.gz, R2.fastq.gz ]
+// fromFilePairs WITHOUT flat:true so we get: [ id, [R1,R2] ]
 Channel
-  .fromFilePairs( params.reads, size: 2 )         // returns [id, [R1, R2]]
-  .map { id, pair -> tuple(id, pair[0], pair[1]) } // make it a 3-tuple
+  .fromFilePairs( params.reads )
+  .map { sid, files -> tuple(sid, files) }
   .set { read_pairs }
 
 workflow {
-  FASTQC(read_pairs)
+  // 1) Run FastQC -> emits ONE channel of directories ("fastqc")
+  fastqc_dirs = FASTQC(read_pairs)
+
+  // 2) Bundle all FastQC dirs into a single value for MultiQC
+  fastqc_dirs.collect().set { fastqc_bundle }
+
+  // 3) Aggregate with MultiQC
+  MULTIQC(fastqc_bundle)
 }

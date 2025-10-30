@@ -1,0 +1,16 @@
+process MULTIQC {
+  publishDir("${params.outdir}/multiqc", mode: 'copy')
+  container "quay.io/biocontainers/multiqc:1.19--pyhdfd78af_0"
+
+  input:
+    path fastqc_reports   // a collected LIST of fastqc dirs
+
+  output:
+    path "multiqc/*"
+
+  script:
+  """
+  mkdir -p multiqc
+  multiqc -o multiqc .
+  """
+}
