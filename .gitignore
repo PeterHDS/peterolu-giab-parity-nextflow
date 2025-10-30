@@ -19,3 +19,4 @@ results_*/
 # MkDocs build
 site/
 docs/site/
+*.save
