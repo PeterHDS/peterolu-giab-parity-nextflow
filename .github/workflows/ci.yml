@@ -1,0 +1,25 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nextflow
+        run: |
+          curl -s https://get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+          nextflow -version
+
+      # IMPORTANT: we run from the pipeline/ folder,
+      # so param paths must be relative to pipeline/
+      - name: Stub run (no real data)
+        run: |
+          cd pipeline
+          echo '{ "reads": "../assets/reads/demo_{R1,R2}.fastq.gz",
+                  "reference_fasta": "../assets/ref/miniref.fa",
+                  "truth_vcf": "../assets/giab/chrMock_truth.vcf.gz",
+                  "confident_bed": "../assets/giab/chrMock_confident.bed",
+                  "outdir": "../results_ci" }' > ../params.ci.json
+          nextflow run main.nf -stub-run -params-file ../params.ci.json
