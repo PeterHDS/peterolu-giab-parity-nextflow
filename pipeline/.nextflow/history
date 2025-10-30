@@ -6,3 +6,6 @@
 2025-10-30 08:26:54	-	cranky_rosalind	-	c0924c87b77186a948e01ea5b9aba6db	2413ff5e-d0e2-4722-9d80-d764c1ed1836	nextflow run main.nf -profile docker --outdir ../results
 2025-10-30 08:34:01	3.9s	voluminous_lamport	ERR	b04bb10fb37283f55f1969b896957c48	254848c6-88ae-4759-beac-803a933fb45a	nextflow run main.nf -profile docker --outdir ../results
 2025-10-30 08:38:18	51s	boring_ritchie	OK	daf9de3232330e8ee2dfb1b415870b69	0dc62af9-0348-42c0-8fa4-cc5e4f72ecc0	nextflow run main.nf -profile docker --outdir ../results
+2025-10-30 08:54:22	10.3s	determined_faggin	OK	daf9de3232330e8ee2dfb1b415870b69	14e70e41-d5e7-4092-ac47-fa47eb1a953b	nextflow run main.nf -profile docker --reference_fasta ../assets/ref/miniref.fa --outdir ../results
+2025-10-30 09:23:47	11.4s	small_koch	OK	daf9de3232330e8ee2dfb1b415870b69	8193dc96-9b8f-4908-8556-02cf427e083a	nextflow run main.nf -profile docker --outdir ../results_run3
+2025-10-30 09:38:15	10.6s	dreamy_archimedes	OK	7f6413d642bfcf3594a6719c1bb1c595	e1a0f270-1641-45b8-a858-b9c9423878b9	nextflow run main.nf -profile docker --outdir ../results_run6

@@ -1,0 +1,1 @@
+/home/snook/peterolu-giab-parity-nextflow/pipeline/work/af/691db4f4d6c9a5881b6cce8eafd3b1/demo.stats.txt

@@ -1,0 +1,11 @@
+
+  /// MultiQC 🔍 | v1.19
+
+|           multiqc | MultiQC Version v1.32 now available!
+|           multiqc | Search path : /home/snook/peterolu-giab-parity-nextflow/pipeline/work/a1/2765cec247e640399da0167398125a
+|         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 10/10  
+Matplotlib created a temporary cache directory at /tmp/matplotlib-yabntz3y because the default path (/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+|            fastqc | Found 2 reports
+|           multiqc | Report      : multiqc/multiqc_report.html
+|           multiqc | Data        : multiqc/multiqc_data
+|           multiqc | MultiQC complete

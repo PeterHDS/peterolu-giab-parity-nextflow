@@ -1,0 +1,5 @@
+Module	Section	Sample Name	Source
+Samtools	stats	demo	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/bf0f9194e73b575808a5763f7555dc/demo.stats.txt
+Samtools	flagstat	demo	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/bf0f9194e73b575808a5763f7555dc/demo.flagstat.txt
+FastQC	all_sections	demo_R2	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/bf0f9194e73b575808a5763f7555dc/fastqc/demo_R2_fastqc.zip
+FastQC	all_sections	demo_R1	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/bf0f9194e73b575808a5763f7555dc/fastqc/demo_R1_fastqc.zip

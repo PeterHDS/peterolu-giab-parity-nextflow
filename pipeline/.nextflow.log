@@ -1,77 +1,101 @@
-Oct-30 08:38:15.205 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile docker --outdir ../results
-Oct-30 08:38:15.499 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Oct-30 08:38:15.640 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/snook/peterolu-giab-parity-nextflow/pipeline/nextflow.config
-Oct-30 08:38:15.655 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/snook/peterolu-giab-parity-nextflow/pipeline/nextflow.config
-Oct-30 08:38:15.793 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
-Oct-30 08:38:17.390 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, docker]
-Oct-30 08:38:17.594 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/snook/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Oct-30 08:38:17.646 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-30 08:38:17.649 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-30 08:38:17.660 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-30 08:38:17.705 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Oct-30 08:38:18.126 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-30 08:38:18.132 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Oct-30 08:38:18.133 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Oct-30 08:38:18.187 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/snook/.nextflow/secrets/store.json
-Oct-30 08:38:18.198 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@38c9e0d6] - activable => nextflow.secret.LocalSecretsProvider@38c9e0d6
-Oct-30 08:38:18.203 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Oct-30 08:38:18.238 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [boring_ritchie] DSL2 - revision: daf9de3232
-Oct-30 08:38:18.396 [main] DEBUG nextflow.Session - Session UUID: 0dc62af9-0348-42c0-8fa4-cc5e4f72ecc0
-Oct-30 08:38:18.397 [main] DEBUG nextflow.Session - Run name: boring_ritchie
-Oct-30 08:38:18.399 [main] DEBUG nextflow.Session - Executor pool size: 8
-Oct-30 08:38:18.428 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Oct-30 08:38:18.448 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-30 08:38:18.500 [main] DEBUG nextflow.cli.CmdRun - 
+Oct-30 09:38:12.806 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile docker --outdir ../results_run6
+Oct-30 09:38:12.977 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Oct-30 09:38:13.055 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/snook/peterolu-giab-parity-nextflow/pipeline/nextflow.config
+Oct-30 09:38:13.063 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/snook/peterolu-giab-parity-nextflow/pipeline/nextflow.config
+Oct-30 09:38:13.133 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Oct-30 09:38:14.263 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, docker]
+Oct-30 09:38:14.442 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/snook/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Oct-30 09:38:14.468 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-30 09:38:14.469 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-30 09:38:14.474 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-30 09:38:14.496 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Oct-30 09:38:14.818 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-30 09:38:14.820 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-30 09:38:14.821 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-30 09:38:14.852 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/snook/.nextflow/secrets/store.json
+Oct-30 09:38:14.858 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4c361f63] - activable => nextflow.secret.LocalSecretsProvider@4c361f63
+Oct-30 09:38:14.862 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-30 09:38:14.890 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [dreamy_archimedes] DSL2 - revision: 7f6413d642
+Oct-30 09:38:15.009 [main] DEBUG nextflow.Session - Session UUID: e1a0f270-1641-45b8-a858-b9c9423878b9
+Oct-30 09:38:15.009 [main] DEBUG nextflow.Session - Run name: dreamy_archimedes
+Oct-30 09:38:15.010 [main] DEBUG nextflow.Session - Executor pool size: 8
+Oct-30 09:38:15.024 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-30 09:38:15.037 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 09:38:15.096 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (17:26 WAST)
   System: Linux 6.6.87.2-microsoft-standard-WSL2
   Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.16+8-Ubuntu-0ubuntu124.04.1
   Encoding: UTF-8 (UTF-8)
-  Process: 2819@SNOOKS4TECH [127.0.1.1]
+  Process: 4265@SNOOKS4TECH [127.0.1.1]
   CPUs: 8 - Mem: 7.7 GB (6.3 GB) - Swap: 2 GB (2 GB)
-Oct-30 08:38:18.552 [main] DEBUG nextflow.Session - Work-dir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work [ext2/ext3]
-Oct-30 08:38:18.554 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/snook/peterolu-giab-parity-nextflow/pipeline/bin
-Oct-30 08:38:18.587 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Oct-30 08:38:18.617 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Oct-30 08:38:18.626 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Oct-30 08:38:18.764 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Oct-30 08:38:18.790 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
-Oct-30 08:38:18.944 [main] DEBUG nextflow.Session - Session start
-Oct-30 08:38:19.589 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Oct-30 08:38:20.650 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Oct-30 08:38:20.651 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-30 08:38:20.692 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Oct-30 08:38:20.717 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
-Oct-30 08:38:20.727 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Oct-30 08:38:20.824 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FASTQC': maxForks=0; fair=false; array=0
-Oct-30 08:38:21.005 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Oct-30 08:38:21.006 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-30 08:38:21.010 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MULTIQC': maxForks=0; fair=false; array=0
-Oct-30 08:38:21.027 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, MULTIQC
-Oct-30 08:38:21.035 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
-Oct-30 08:38:21.050 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/snook/peterolu-giab-parity-nextflow/pipeline/../assets/reads/; pattern: *_{R1,R2}.fastq.gz; options: [:]
-Oct-30 08:38:21.051 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
-Oct-30 08:38:21.053 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC
-Oct-30 08:38:21.056 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+Oct-30 09:38:15.138 [main] DEBUG nextflow.Session - Work-dir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work [ext2/ext3]
+Oct-30 09:38:15.138 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/snook/peterolu-giab-parity-nextflow/pipeline/bin
+Oct-30 09:38:15.156 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-30 09:38:15.171 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-30 09:38:15.179 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Oct-30 09:38:15.253 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-30 09:38:15.272 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Oct-30 09:38:15.404 [main] DEBUG nextflow.Session - Session start
+Oct-30 09:38:15.913 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-30 09:38:16.697 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-30 09:38:16.698 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 09:38:16.732 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-30 09:38:16.751 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=7.7 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Oct-30 09:38:16.759 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-30 09:38:16.825 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FASTQC': maxForks=0; fair=false; array=0
+Oct-30 09:38:16.917 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-30 09:38:16.917 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 09:38:16.919 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'BWA_ALIGN': maxForks=0; fair=false; array=0
+Oct-30 09:38:16.934 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-30 09:38:16.934 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 09:38:16.935 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SAMTOOLS_SORT': maxForks=0; fair=false; array=0
+Oct-30 09:38:16.942 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-30 09:38:16.943 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 09:38:16.944 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SAMTOOLS_STATS': maxForks=0; fair=false; array=0
+Oct-30 09:38:16.972 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-30 09:38:16.972 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 09:38:16.973 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MULTIQC': maxForks=0; fair=false; array=0
+Oct-30 09:38:16.978 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SAMTOOLS_SORT, FASTQC, BWA_ALIGN, MULTIQC, SAMTOOLS_STATS
+Oct-30 09:38:16.981 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
+Oct-30 09:38:16.989 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/snook/peterolu-giab-parity-nextflow/pipeline/../assets/reads/; pattern: *_{R1,R2}.fastq.gz; options: [:]
+Oct-30 09:38:16.991 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
+Oct-30 09:38:16.992 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BWA_ALIGN
+Oct-30 09:38:16.994 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SAMTOOLS_SORT
+Oct-30 09:38:16.994 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SAMTOOLS_STATS
+Oct-30 09:38:16.995 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC
+Oct-30 09:38:16.996 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_1153ca9ebad2dde5: /home/snook/peterolu-giab-parity-nextflow/pipeline/modules/multiqc.nf
-  Script_1691aaf4c2811b5b: /home/snook/peterolu-giab-parity-nextflow/pipeline/main.nf
+  Script_69ee98c6310f805b: /home/snook/peterolu-giab-parity-nextflow/pipeline/modules/bwa_align.nf
   Script_8ce163514ca92f88: /home/snook/peterolu-giab-parity-nextflow/pipeline/modules/fastqc.nf
-Oct-30 08:38:21.057 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Oct-30 08:38:21.058 [main] DEBUG nextflow.Session - Session await
-Oct-30 08:38:21.709 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Oct-30 08:38:21.716 [Task submitter] INFO  nextflow.Session - [42/3f924b] Submitted process > FASTQC (demo)
-Oct-30 08:38:26.386 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: FASTQC (demo); status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/42/3f924b061c180b96a9326992743e5b]
-Oct-30 08:38:26.390 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-30 08:38:26.451 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-30 08:38:26.537 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Oct-30 08:38:26.540 [Task submitter] INFO  nextflow.Session - [06/95364d] Submitted process > MULTIQC
-Oct-30 08:39:08.820 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: MULTIQC; status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/06/95364d93f99d61bd0d148c194fe2e0]
-Oct-30 08:39:08.867 [main] DEBUG nextflow.Session - Session await > all processes finished
-Oct-30 08:39:08.922 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Oct-30 08:39:08.922 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Oct-30 08:39:08.927 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Oct-30 08:39:08.928 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
-Oct-30 08:39:08.945 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=46.8s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
-Oct-30 08:39:09.022 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Oct-30 08:39:09.054 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Oct-30 08:39:09.056 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+  Script_919c7005b2dc5f67: /home/snook/peterolu-giab-parity-nextflow/pipeline/modules/samtools_sort.nf
+  Script_b3351f190c0d831f: /home/snook/peterolu-giab-parity-nextflow/pipeline/main.nf
+  Script_e8ef4b0b5e11d0e3: /home/snook/peterolu-giab-parity-nextflow/pipeline/modules/samtools_stats.nf
+Oct-30 09:38:16.996 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-30 09:38:16.997 [main] DEBUG nextflow.Session - Session await
+Oct-30 09:38:17.345 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 09:38:17.349 [Task submitter] INFO  nextflow.Session - [73/8ec55f] Submitted process > BWA_ALIGN (demo)
+Oct-30 09:38:17.396 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 09:38:17.398 [Task submitter] INFO  nextflow.Session - [54/d7f79b] Submitted process > FASTQC (demo)
+Oct-30 09:38:18.699 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: BWA_ALIGN (demo); status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/73/8ec55f589a8d48ee43f5158408c843]
+Oct-30 09:38:18.702 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 09:38:18.797 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 09:38:18.807 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 09:38:18.813 [Task submitter] INFO  nextflow.Session - [00/c0831d] Submitted process > SAMTOOLS_SORT (demo)
+Oct-30 09:38:19.827 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: SAMTOOLS_SORT (demo); status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/00/c0831dcd65e268ce208411612dbe17]
+Oct-30 09:38:19.898 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 09:38:19.899 [Task submitter] INFO  nextflow.Session - [af/691db4] Submitted process > SAMTOOLS_STATS (demo)
+Oct-30 09:38:20.715 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: SAMTOOLS_STATS (demo); status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/af/691db4f4d6c9a5881b6cce8eafd3b1]
+Oct-30 09:38:22.274 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: FASTQC (demo); status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/d7f79b0c340f40d4e1ed900c28f769]
+Oct-30 09:38:22.328 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 09:38:22.329 [Task submitter] INFO  nextflow.Session - [54/bf0f91] Submitted process > MULTIQC
+Oct-30 09:38:25.337 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: MULTIQC; status: COMPLETED; exit: 0; error: -; workDir: /home/snook/peterolu-giab-parity-nextflow/pipeline/work/54/bf0f9194e73b575808a5763f7555dc]
+Oct-30 09:38:25.376 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-30 09:38:25.439 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-30 09:38:25.440 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-30 09:38:25.445 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Oct-30 09:38:25.446 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Oct-30 09:38:25.465 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=5; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=10.8s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Oct-30 09:38:25.573 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-30 09:38:25.597 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-30 09:38:25.599 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
