@@ -1,9 +1,14 @@
 name: CI
 on: [push, pull_request]
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -36,6 +41,9 @@ jobs:
           gzip -f assets/giab/chrMock_truth.vcf
 
       - name: Stub run (no real compute / no containers)
+        env:
+          NXF_ANSI_LOG: 'false'
+          NXF_HOME: ${{ github.workspace }}/.nextflow
         run: |
           cd pipeline
           echo '{ "reads": "../assets/reads/demo_{R1,R2}.fastq.gz",
@@ -43,4 +51,13 @@ jobs:
                   "truth_vcf": "../assets/giab/chrMock_truth.vcf.gz",
                   "confident_bed": "../assets/giab/chrMock_confident.bed",
                   "outdir": "../results_ci" }' > ../params.ci.json
-          nextflow run main.nf -stub-run -params-file ../params.ci.json
+          nextflow run main.nf -stub-run -params-file ../params.ci.json -with-dag ../nf_dag.svg -with-report ../nf_report.html
+
+      - name: Upload CI artifacts (for debugging)
+        uses: actions/upload-artifact@v4
+        with:
+          name: nf-ci-artifacts
+          path: |
+            results_ci/**
+            nf_report.html
+            nf_dag.svg
