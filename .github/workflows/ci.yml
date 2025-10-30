@@ -25,18 +25,15 @@ jobs:
           printf '@READ1/1\nACGTACGT\n+\nFFFFFFFF\n' > assets/reads/demo_R1.fastq
           printf '@READ1/2\nTCGATCGA\n+\nFFFFFFFF\n' > assets/reads/demo_R2.fastq
           gzip -f assets/reads/demo_R1.fastq assets/reads/demo_R2.fastq
-          cat > assets/ref/miniref.fa << 'EOF'
->chrMock
-ACGTACGTACGTACGATCGATCGATCGATCGAT
-EOF
-          printf 'chrMock\t1\t36\n' > assets/giab/chrMock_confident.bed
+          printf '%s\n' '>chrMock' 'ACGTACGTACGTACGATCGATCGATCGATCGAT' > assets/ref/miniref.fa
+          printf '%s\t%s\t%s\n' 'chrMock' '1' '36' > assets/giab/chrMock_confident.bed
           {
-            echo '##fileformat=VCFv4.2'
-            echo '##contig=<ID=chrMock>'
-            echo -e '#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tTRUTH'
-            echo -e 'chrMock\t20\t.\tA\tT\t60\tPASS\t.\tGT\t1/1'
+            printf '%s\n' '##fileformat=VCFv4.2'
+            printf '%s\n' '##contig=<ID=chrMock>'
+            printf '%s\n' '#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tTRUTH'
+            printf '%s\n' 'chrMock\t20\t.\tA\tT\t60\tPASS\t.\tGT\t1/1'
           } > assets/giab/chrMock_truth.vcf
-          gzip -f assets/giab/chrMock_truth.vcf  # gzip is fine for stub-run
+          gzip -f assets/giab/chrMock_truth.vcf
 
       - name: Stub run (no real compute / no containers)
         run: |

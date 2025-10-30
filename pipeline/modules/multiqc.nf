@@ -13,4 +13,10 @@ process MULTIQC {
   mkdir -p multiqc
   multiqc -o multiqc .
   """
+
+  stub:
+  """
+  mkdir -p multiqc
+  echo "stub multiqc output" > multiqc/summary.txt
+  """
 }
