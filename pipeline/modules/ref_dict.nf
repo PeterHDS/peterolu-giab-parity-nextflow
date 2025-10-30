@@ -7,9 +7,15 @@ process REF_DICT {
   output:
     path "ref"
 
-  script:
-  """
-  cp -r $refdir ./ref
-  gatk CreateSequenceDictionary -R ref/ref.fa -O ref/ref.dict
-  """
+  shell:
+  '''
+  set -euo pipefail
+  cp -r ref ./ref
+
+  if [ -s ref/ref.dict ]; then
+    echo "[REF_DICT] ref.dict already present; skipping." >&2
+  else
+    gatk CreateSequenceDictionary -R ref/ref.fa -O ref/ref.dict
+  fi
+  '''
 }

@@ -14,6 +14,6 @@ process BWA_ALIGN {
   """
   cp $reference_fa ref.fa
   bwa index ref.fa
-  bwa mem -t 2 ref.fa $reads > ${sample_id}.sam
+  bwa mem -t 2 -R "@RG\\tID:${sample_id}\\tSM:${sample_id}\\tPL:ILLUMINA" ref.fa $reads > ${sample_id}.sam
   """
 }

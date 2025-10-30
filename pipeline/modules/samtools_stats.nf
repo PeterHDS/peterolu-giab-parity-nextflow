@@ -7,12 +7,12 @@ process SAMTOOLS_STATS {
     tuple val(sample_id), path(bam)
 
   output:
-    path "${sample_id}.flagstat.txt"
-    path "${sample_id}.stats.txt"
+    path "${sample_id}.samtools_flagstat.txt"
+    path "${sample_id}.samtools_stats.txt"
 
   script:
   """
-  samtools flagstat ${bam} > ${sample_id}.flagstat.txt
-  samtools stats ${bam} > ${sample_id}.stats.txt
+  samtools flagstat ${bam} > ${sample_id}.samtools_flagstat.txt
+  samtools stats ${bam} > ${sample_id}.samtools_stats.txt
   """
 }

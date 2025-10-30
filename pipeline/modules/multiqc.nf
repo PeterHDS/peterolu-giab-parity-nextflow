@@ -3,7 +3,7 @@ process MULTIQC {
   container "quay.io/biocontainers/multiqc:1.19--pyhdfd78af_0"
 
   input:
-    path fastqc_reports   // a collected LIST of fastqc dirs
+    path inputs
 
   output:
     path "multiqc/*"
