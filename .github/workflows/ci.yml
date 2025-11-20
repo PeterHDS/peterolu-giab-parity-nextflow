@@ -27,7 +27,8 @@ jobs:
           sudo mv nextflow /usr/local/bin/
           nextflow -version
 
-      - name: Prepare stub assets (tiny files so params.* paths exist)
+      # Tiny fake GIAB assets so params.* paths exist
+      - name: Prepare stub assets (tiny files for -stub-run)
         run: |
           mkdir -p assets/reads assets/ref assets/giab
           # paired reads: demo_R1 / demo_R2
@@ -47,10 +48,24 @@ jobs:
           } > assets/giab/chrMock_truth.vcf
           gzip -f assets/giab/chrMock_truth.vcf
 
-      - name: Dry-run main pipeline (no tools / containers needed)
+      - name: Stub-run main.nf (no real tools / containers)
         env:
           NXF_ANSI_LOG: 'false'
-          NXF_HOME: ${{ github.workspace }}/.nextflow
+          NXF_HOME: ${{ github.workspace }}/.nextflow_ci
         run: |
           cd pipeline
-          nextflow run main.nf -N
+          echo '{ "reads": "../assets/reads/demo_{R1,R2}.fastq.gz",
+                  "reference_fasta": "../assets/ref/miniref.fa",
+                  "truth_vcf": "../assets/giab/chrMock_truth.vcf.gz",
+                  "confident_bed": "../assets/giab/chrMock_confident.bed",
+                  "outdir": "../results_ci" }' > ../params.ci.json
+          nextflow run main.nf -stub-run -params-file ../params.ci.json
+
+      - name: Upload CI artifacts (for debugging)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nf-ci-artifacts
+          path: |
+            results_ci/**
+          if-no-files-found: ignore
