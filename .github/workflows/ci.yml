@@ -1,4 +1,5 @@
 name: CI
+
 on: [push, pull_request]
 
 concurrency:
@@ -25,23 +26,14 @@ jobs:
           sudo mv nextflow /usr/local/bin/
           nextflow -version
 
-      # Tiny fake GIAB assets so CI doesn't need real FASTQs
       - name: Prepare stub assets (tiny files for -stub-run)
         run: |
           mkdir -p assets/reads assets/ref assets/giab
-
-          # paired reads: demo_R1 / demo_R2
           printf '@READ1/1\nACGTACGT\n+\nFFFFFFFF\n' > assets/reads/demo_R1.fastq
           printf '@READ1/2\nTCGATCGA\n+\nFFFFFFFF\n' > assets/reads/demo_R2.fastq
           gzip -f assets/reads/demo_R1.fastq assets/reads/demo_R2.fastq
-
-          # mini reference
           printf '%s\n' '>chrMock' 'ACGTACGTACGTACGATCGATCGATCGATCGAT' > assets/ref/miniref.fa
-
-          # confident regions
           printf '%s\t%s\t%s\n' 'chrMock' '1' '36' > assets/giab/chrMock_confident.bed
-
-          # tiny truth VCF
           {
             printf '%s\n' '##fileformat=VCFv4.2'
             printf '%s\n' '##contig=<ID=chrMock>'
@@ -56,13 +48,4 @@ jobs:
           NXF_HOME: ${{ github.workspace }}/.nextflow
         run: |
           cd pipeline
-          # Use main.nf + nextflow.config defaults (which point to ../assets/...)
           nextflow run main.nf -stub-run
-
-      - name: Upload CI artifacts (for debugging)
-        uses: actions/upload-artifact@v4
-        with:
-          name: nf-ci-artifacts
-          path: |
-            results_ci/**
-          if-no-files-found: ignore
