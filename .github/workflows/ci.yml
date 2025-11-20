@@ -1,5 +1,4 @@
 name: CI
-
 on: [push, pull_request]
 
 concurrency:
@@ -7,7 +6,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  dry-run:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -21,19 +20,25 @@ jobs:
           java-version: '17'
 
       - name: Install Nextflow
+        env:
+          NXF_VER: '25.10.0'
         run: |
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
           nextflow -version
 
-      - name: Prepare stub assets (tiny files for -stub-run)
+      - name: Prepare stub assets (tiny files so params.* paths exist)
         run: |
           mkdir -p assets/reads assets/ref assets/giab
+          # paired reads: demo_R1 / demo_R2
           printf '@READ1/1\nACGTACGT\n+\nFFFFFFFF\n' > assets/reads/demo_R1.fastq
           printf '@READ1/2\nTCGATCGA\n+\nFFFFFFFF\n' > assets/reads/demo_R2.fastq
           gzip -f assets/reads/demo_R1.fastq assets/reads/demo_R2.fastq
+          # mini reference
           printf '%s\n' '>chrMock' 'ACGTACGTACGTACGATCGATCGATCGATCGAT' > assets/ref/miniref.fa
+          # confident regions
           printf '%s\t%s\t%s\n' 'chrMock' '1' '36' > assets/giab/chrMock_confident.bed
+          # tiny truth VCF
           {
             printf '%s\n' '##fileformat=VCFv4.2'
             printf '%s\n' '##contig=<ID=chrMock>'
@@ -42,10 +47,10 @@ jobs:
           } > assets/giab/chrMock_truth.vcf
           gzip -f assets/giab/chrMock_truth.vcf
 
-      - name: Stub run (no real compute / no containers)
+      - name: Dry-run main pipeline (no tools / containers needed)
         env:
           NXF_ANSI_LOG: 'false'
           NXF_HOME: ${{ github.workspace }}/.nextflow
         run: |
           cd pipeline
-          nextflow run main.nf -stub-run
+          nextflow run main.nf -N
