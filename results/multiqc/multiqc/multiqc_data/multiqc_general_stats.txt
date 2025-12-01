@@ -1,3 +1,4 @@
-Sample	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-percent_gc	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-median_sequence_length	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-total_sequences
-demo_R1	0.0	50.0	16.0	16	30.0	2.0
-demo_R2	0.0	50.0	16.0	16	30.0	2.0
+Sample	Samtools_mqc-generalstats-samtools-error_rate	Samtools_mqc-generalstats-samtools-non_primary_alignments	Samtools_mqc-generalstats-samtools-reads_mapped	Samtools_mqc-generalstats-samtools-reads_mapped_percent	Samtools_mqc-generalstats-samtools-reads_properly_paired_percent	Samtools_mqc-generalstats-samtools-reads_MQ0_percent	Samtools_mqc-generalstats-samtools-raw_total_sequences	Samtools_mqc-generalstats-samtools-flagstat_total	Samtools_mqc-generalstats-samtools-mapped_passed	Samtools_mqc-generalstats-samtools-mapped_passed_pct	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-percent_gc	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-median_sequence_length	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-total_sequences
+demo	0.0	0.0	0.0	0.0	0.0	0.0	4.0	4	0	0.0						
+demo_R1											0.0	50.0	16.0	16	30.0	2.0
+demo_R2											0.0	50.0	16.0	16	30.0	2.0

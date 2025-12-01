@@ -1,21 +1,23 @@
 process BCFTOOLS_STATS_VCF {
-  tag "$sample_id"
-  publishDir("${params.outdir}/vcf_metrics", mode: 'copy')
-  container "quay.io/biocontainers/bcftools:1.17--hf3cf87c_0"
+  tag "${vcf.simpleName}"
+  publishDir "${params.outdir}/vcf_stats", mode: 'copy'
+  container 'quay.io/biocontainers/bcftools:1.17--h3cc50cf_1'
 
   input:
-    tuple val(sample_id), path(vcf_gz)
+    // single VCF(.gz) path (no tuples!)
+    path vcf
 
   output:
-    path "${sample_id}.bcftools.stats.txt"
+    path "${vcf.simpleName}.bcftools.stats.txt", emit: stats
 
   script:
   """
-  bcftools stats ${vcf_gz} > ${sample_id}.bcftools.stats.txt
-  """
+  set -euo pipefail
+  # index if missing (harmless if already present)
+  if [ ! -f "${vcf}.tbi" ] && [ ! -f "${vcf}.csi" ]; then
+    bcftools index -f "${vcf}"
+  fi
 
-  stub:
-  """
-  echo "bcftools stats (stub)" > ${sample_id}.bcftools.stats.txt
+  bcftools stats "${vcf}" > "${vcf.simpleName}.bcftools.stats.txt"
   """
 }

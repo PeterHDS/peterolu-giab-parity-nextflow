@@ -1,22 +1,37 @@
 process MULTIQC {
-  publishDir("${params.outdir}/multiqc", mode: 'copy')
-  container "quay.io/biocontainers/multiqc:1.19--pyhdfd78af_0"
+
+  tag "multiqc"
+
+  // Publish MultiQC report into the main outdir
+  publishDir "${params.outdir}/multiqc", mode: 'copy'
 
   input:
-    path inputs
+    // We don’t actually need to *use* qc_files in the script,
+    // but this keeps the dependency so MultiQC runs at the end.
+    path qc_files
 
   output:
-    path "multiqc/*"
+    path "multiqc_report.html"
+    path "multiqc_data", optional: true
+
+  // Do NOT let MultiQC failure kill the whole pipeline
+  errorStrategy 'ignore'
+  maxRetries 1
 
   script:
   """
   mkdir -p multiqc
-  multiqc -o multiqc .
-  """
 
-  stub:
-  """
-  mkdir -p multiqc
-  echo "stub multiqc output" > multiqc/summary.txt
+  # Run MultiQC but skip the problematic bcftools module
+  multiqc --exclude bcftools -o multiqc .
+
+  # Normalise outputs for Nextflow
+  if [ -f multiqc/multiqc_report.html ]; then
+    cp multiqc/multiqc_report.html .
+  fi
+
+  if [ -d multiqc/multiqc_data ]; then
+    cp -r multiqc/multiqc_data .
+  fi
   """
 }

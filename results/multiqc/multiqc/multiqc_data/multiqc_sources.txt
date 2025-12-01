@@ -1,3 +1,5 @@
 Module	Section	Sample Name	Source
-FastQC	all_sections	demo_R2	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/a1/2765cec247e640399da0167398125a/fastqc/demo_R2_fastqc.zip
-FastQC	all_sections	demo_R1	/home/snook/peterolu-giab-parity-nextflow/pipeline/work/a1/2765cec247e640399da0167398125a/fastqc/demo_R1_fastqc.zip
+Samtools	stats	demo	/tmp/nxf.X4FjJLTq6R/demo.samtools_stats.txt
+Samtools	flagstat	demo	/tmp/nxf.X4FjJLTq6R/demo.samtools_flagstat.txt
+FastQC	all_sections	demo_R2	/tmp/nxf.X4FjJLTq6R/fastqc/demo_R2_fastqc.zip
+FastQC	all_sections	demo_R1	/tmp/nxf.X4FjJLTq6R/fastqc/demo_R1_fastqc.zip

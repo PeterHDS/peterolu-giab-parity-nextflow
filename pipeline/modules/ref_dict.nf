@@ -1,22 +1,19 @@
 process REF_DICT {
+  tag "Create dict"
   publishDir("${params.outdir}/ref", mode: 'copy')
-  container "quay.io/biocontainers/gatk4:4.4.0.0--py39hdfd78af_0"
+  container 'broadinstitute/gatk:4.4.0.0'
 
   input:
-    path refdir
+    // Stage the incoming reference directory AS 'ref' so the path is stable and no self-copies happen
+    path refdir, stageAs: 'ref'
 
   output:
-    path "ref"
+    // Re-emit the prepared dir for downstream steps
+    path 'ref'
 
   script:
   """
-  cp -r $refdir ./ref
+  set -euo pipefail
   gatk CreateSequenceDictionary -R ref/ref.fa -O ref/ref.dict
-  """
-
-  stub:
-  """
-  mkdir -p ref
-  echo "stub dict" > ref/ref.dict
   """
 }

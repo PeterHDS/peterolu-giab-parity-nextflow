@@ -1,23 +1,27 @@
 process GATK_HC {
-  tag "$sample_id"
-  publishDir("${params.outdir}/vcf", mode: 'copy')
-  container "quay.io/biocontainers/gatk4:4.4.0.0--py39hdfd78af_0"
+  tag "$sid"
+  // If you pinned resources in nextflow.config, those will override these
+  cpus 2
+  memory '6 GB'
+  container 'broadinstitute/gatk:4.4.0.0'
 
   input:
-    path refdir
-    tuple val(sample_id), path(bam)
+    // stage the reference directory exactly as "ref" so path is stable
+    path refdir, stageAs: 'ref'
+    // CRITICAL: bring both BAM and BAI so NF stages both
+    tuple val(sid), path(bam), path(bai)
 
   output:
-    tuple val(sample_id), path("${sample_id}.vcf.gz")
+    // emit sid + VCF path (bgzipped)
+    tuple val(sid), path("${sid}.vcf.gz")
 
   script:
   """
-  cp -r $refdir ./ref
-  gatk HaplotypeCaller -R ref/ref.fa -I ${bam} -O ${sample_id}.vcf.gz
-  """
-
-  stub:
-  """
-  printf "" | gzip -c > ${sample_id}.vcf.gz
+  set -euo pipefail
+  gatk HaplotypeCaller \
+    -R ref/ref.fa \
+    -I ${bam} \
+    --native-pair-hmm-threads ${task.cpus ?: 2} \
+    -O ${sid}.vcf.gz
   """
 }
