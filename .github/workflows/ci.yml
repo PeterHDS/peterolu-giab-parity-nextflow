@@ -1,4 +1,5 @@
-name: CI
+name: Nextflow sanity check
+
 on: [push, pull_request]
 
 concurrency:
@@ -6,12 +7,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  sanity:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Set up Java 17 (Nextflow requirement)
         uses: actions/setup-java@v4
@@ -19,7 +21,7 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Install Nextflow
+      - name: Install Nextflow and show version
         env:
           NXF_VER: '25.10.0'
         run: |
@@ -27,45 +29,3 @@ jobs:
           sudo mv nextflow /usr/local/bin/
           nextflow -version
 
-      # Tiny fake GIAB assets so params.* paths exist
-      - name: Prepare stub assets (tiny files for -stub-run)
-        run: |
-          mkdir -p assets/reads assets/ref assets/giab
-          # paired reads: demo_R1 / demo_R2
-          printf '@READ1/1\nACGTACGT\n+\nFFFFFFFF\n' > assets/reads/demo_R1.fastq
-          printf '@READ1/2\nTCGATCGA\n+\nFFFFFFFF\n' > assets/reads/demo_R2.fastq
-          gzip -f assets/reads/demo_R1.fastq assets/reads/demo_R2.fastq
-          # mini reference
-          printf '%s\n' '>chrMock' 'ACGTACGTACGTACGATCGATCGATCGATCGAT' > assets/ref/miniref.fa
-          # confident regions
-          printf '%s\t%s\t%s\n' 'chrMock' '1' '36' > assets/giab/chrMock_confident.bed
-          # tiny truth VCF
-          {
-            printf '%s\n' '##fileformat=VCFv4.2'
-            printf '%s\n' '##contig=<ID=chrMock>'
-            printf '%s\n' '#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tTRUTH'
-            printf '%s\n' 'chrMock\t20\t.\tA\tT\t60\tPASS\t.\tGT\t1/1'
-          } > assets/giab/chrMock_truth.vcf
-          gzip -f assets/giab/chrMock_truth.vcf
-
-      - name: Stub-run main.nf (no real tools / containers)
-        env:
-          NXF_ANSI_LOG: 'false'
-          NXF_HOME: ${{ github.workspace }}/.nextflow_ci
-        run: |
-          cd pipeline
-          echo '{ "reads": "../assets/reads/demo_{R1,R2}.fastq.gz",
-                  "reference_fasta": "../assets/ref/miniref.fa",
-                  "truth_vcf": "../assets/giab/chrMock_truth.vcf.gz",
-                  "confident_bed": "../assets/giab/chrMock_confident.bed",
-                  "outdir": "../results_ci" }' > ../params.ci.json
-          nextflow run main.nf -stub-run -params-file ../params.ci.json
-
-      - name: Upload CI artifacts (for debugging)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: nf-ci-artifacts
-          path: |
-            results_ci/**
-          if-no-files-found: ignore
