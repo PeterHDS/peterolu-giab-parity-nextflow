@@ -141,12 +141,12 @@ The current workflow covers:
 
 ```mermaid
 graph LR
-  A[FASTQ reads<br/>(demo_R1 / demo_R2)] --> B[FastQC]
-  A --> C[BWA-MEM<br/>(alignment)]
-  C --> D[samtools sort / index<br/>(BAM + BAI)]
-  D --> E[GATK HaplotypeCaller<br/>(germline VCF)]
-  E --> F[bcftools stats<br/>(VCF metrics)]
-  B & D & E & F --> G[MultiQC<br/>(one HTML report)]
+  A["FASTQ reads (demo_R1/R2)"] --> B["FastQC"]
+  A --> C["BWA-MEM (alignment)"]
+  C --> D["samtools sort/index (BAM + BAI)"]
+  D --> E["GATK HaplotypeCaller (germline VCF)"]
+  E --> F["bcftools stats (VCF metrics)"]
+  B & D & E & F --> G["MultiQC (one HTML report)"]
 ```
 
 ---
