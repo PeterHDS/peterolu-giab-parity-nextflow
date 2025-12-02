@@ -1,8 +1,14 @@
 <div align="center">
 
-# Portable Precision – GIAB Parity 🔬
+# Portable Precision – GIAB Parity 🔬  
+### GIAB-inspired Nextflow DSL2 germline pipeline for reproducible, portable genomics (laptop → S3 → AWS Batch)
 
-### Laptop-scale GIAB-style Nextflow DSL2 germline pipeline for reproducible health data science
+[![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A5DSL2-23aa62.svg)](https://www.nextflow.io/)
+[![CI: Nextflow sanity check](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml)
+[![Made by Peter Olu DS](https://img.shields.io/badge/made_by-Peter_Olu_DS-4B0082.svg)](https://github.com/PeterHDS)
+
+</div>
+
 
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A5DSL2-23aa62.svg)](https://www.nextflow.io/)
 [![CI: Nextflow sanity check](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml)
