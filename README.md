@@ -410,7 +410,7 @@ I’m interested in roles where pipelines, data products and governance come tog
 * benchmarking and improving **variant-calling pipelines**, or
 * designing **health data tools** that clinicians and researchers can trust.
 
-If you’re reviewing this as a mentor, partner organisation or potential employer, this repo is a small but concrete example of how I approach that work.
+If you’re reviewing this as a mentor, partner organisation or potential employer, I hope this repo demonstrates my commitment to meaningful collaboration and how I approach that work.
 
 ---
 
