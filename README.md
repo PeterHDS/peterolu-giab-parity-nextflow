@@ -9,14 +9,7 @@
 
 </div>
 
-
-[![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A5DSL2-23aa62.svg)](https://www.nextflow.io/)
-[![CI: Nextflow sanity check](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/PeterHDS/peterolu-giab-parity-nextflow/actions/workflows/ci.yml)
-[![Made by Peter Olu DS](https://img.shields.io/badge/made_by-Peter_Olu_DS-4B0082.svg)](https://github.com/PeterHDS)
-
-</div>
-
-Hi, This is **Peter Oluwatimilehin** (“Peter Olu DS” online) 👋
+Hi, This is **Peter Oluwatimilehin** (“PeterOluDS” online) 👋
 
 This repo is my flagship personal project as I move from:
 
